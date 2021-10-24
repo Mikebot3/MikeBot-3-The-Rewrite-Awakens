@@ -16,7 +16,7 @@ const client = new Discord.Client({
 client.on('ready', () => {
     console.log(`Hello World, I am ${client.user.tag}`);
 
-    const testGuild = process.env.testguild;
+    const testGuild = process.env.TESTGUILD;
     const guild = client.guilds.cache.get(testGuild);
     let commands;
 
@@ -47,4 +47,4 @@ client.on("interactionCreate", async (interaction) => {
 })
 /* Event Handlers */
 
-client.login(process.env.token);
+client.login(process.env.TOKEN);
