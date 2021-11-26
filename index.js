@@ -9,6 +9,7 @@ const client = new Discord.Client({
         Intents.FLAGS.GUILD_MEMBERS,
         Intents.FLAGS.GUILD_MESSAGES
     ]
+
 })
 /* Required Modules */
 
@@ -16,8 +17,8 @@ const client = new Discord.Client({
 client.on('ready', () => {
     console.log(`Hello World, I am ${client.user.tag}`);
 
-    const testGuild = process.env.TESTGUILD;
-    const guild = client.guilds.cache.get(testGuild);
+    const Mikebot = process.env.Mikebot;
+    const guild = client.guilds.cache.get(Mikebot);
     let commands;
 
     if (guild) {
@@ -26,15 +27,18 @@ client.on('ready', () => {
         commands = client.application?.commands
     }
 
-    commands?.create({
-        name: 'ping',
-        description: 'Replies with pong.',
-    })
+    commands?.clear;
+    commands?.create(
+        {
+        name: "test",
+        description: "test"
+        }
+    )
 })
 
 client.on("interactionCreate", async (interaction) => {
     if (!interaction.isCommand()) {
-        interaction.reply({ content: 'not a command bruh', ephemeral: false, })
+        interaction.reply({ content: 'not a command bruh', ephemeral: true, })
         return
     }
 
@@ -43,6 +47,9 @@ client.on("interactionCreate", async (interaction) => {
     switch (commandName) {
         case "ping":
             interaction.reply({ content: 'pong', ephemeral: true, })
+            break;
+        case "test":
+            interaction.reply({ content: "test", ephemeral: false })
     }
 })
 /* Event Handlers */
