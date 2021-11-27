@@ -50,6 +50,7 @@ client.on("interactionCreate", async (interaction) => {
             break;
         case "test":
             interaction.reply({ content: "test", ephemeral: false })
+            break;
     }
 })
 /* Event Handlers */
