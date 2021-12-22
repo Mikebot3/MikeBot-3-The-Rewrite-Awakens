@@ -9,9 +9,11 @@
   },
   "type": "module",
   "keywords": [],
-  "author": "AM GAMOr (wombat)#1521",
+  "author": "AM GAMOr (wombat)#1521, CixAstra#1643",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "discord-api-types": "^0.25.2",
     "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.14"
