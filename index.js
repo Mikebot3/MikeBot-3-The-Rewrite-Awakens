@@ -1,46 +1,7 @@
-/* Required Modules */
-const fs = require('fs');
-const Discord = require('discord.js');
-const { Intents, Collection } = require('discord.js');
-const dotenv = require('dotenv');
-dotenv.config();
 
-const client = new Discord.Client({
-    intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MEMBERS,
-        Intents.FLAGS.GUILD_MESSAGES
-    ]
-})
-/* Required Modules */
-
-client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.data.name, command)
-}
-
-/* Event Handlers */
-client.on('ready', () => {
-    console.log(`Hello World, I am ${client.user.tag}`);
-})
-
-client.on("interactionCreate", async (interaction) => {
-    if (!interaction.isCommand()) return;
-
-    const command = client.commands.get(interaction.commandName)
-
-    if (!command) return;
-
-    try {
-        command.execute(interaction);
-    } catch (error) {
-        console.error(`WTF LOL:\n${error}`);
-        interaction.reply({ content: 'oi bruv somefing went rong innit', ephemeral: true, })
-    }
-});
-/* Event Handlers */
-
-client.login(process.env.TOKEN);
+const download = require('download-git-repo');
+download('Mikebot3/Mikebot-3-The-Rewrite-Awakens', ".../", function (err) {
+    console.log(err ? 'Error' : 'Success')
+  });
+const bot = require('.../bot.js');
+bot();
