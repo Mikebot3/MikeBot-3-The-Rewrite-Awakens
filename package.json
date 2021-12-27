@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
-  "type": "module",
   "keywords": [],
   "author": "AM GAMOr (wombat)#1521, CixAstra#1643",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/builders": "^0.9.0",
     "@discordjs/rest": "^0.2.0-canary.0",
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.2.0",

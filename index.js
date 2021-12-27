@@ -1,7 +1,8 @@
 /* Required Modules */
 const fs = require('fs');
-import Discord, { Collection, Intents } from 'discord.js';
-import dotenv from 'dotenv';
+const Discord = require('discord.js');
+const { Intents, Collection } = require('discord.js');
+const dotenv = require('dotenv');
 dotenv.config();
 
 const client = new Discord.Client({
@@ -24,25 +25,6 @@ for (const file of commandFiles) {
 /* Event Handlers */
 client.on('ready', () => {
     console.log(`Hello World, I am ${client.user.tag}`);
-    /*
-    const Mikebot = process.env.Mikebot;
-    const guild = client.guilds.cache.get(Mikebot);
-    let commands;
-
-    if (guild) {
-        commands = guild.commands;
-    } else {
-        commands = client.application?.commands
-    }
-
-    commands?.clear;
-    commands?.create(
-        {
-        name: "test",
-        description: "test"
-        }
-    )
-    */
 })
 
 client.on("interactionCreate", async (interaction) => {
