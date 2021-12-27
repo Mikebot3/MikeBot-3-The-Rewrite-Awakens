@@ -1,7 +1,9 @@
 /* Required Modules */
 const fs = require('fs');
-import Discord, { Collection, Intents } from 'discord.js';
-import dotenv from 'dotenv';
+//import Discord, { Collection, Intents } from 'discord.js';
+const Discord = require('discord.js');
+const dotenv = require('dotenv');
+//import dotenv from 'dotenv';
 dotenv.config();
 
 const client = new Discord.Client({
